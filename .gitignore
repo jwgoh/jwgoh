@@ -8,8 +8,8 @@
 /.bundle
 
 #Ignore database files
-/config/database.yml
-/config/secrets.yml
+config/database.yml
+config/secrets.yml
 
 #Ignore env file
 .env

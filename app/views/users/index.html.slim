@@ -1,0 +1,24 @@
+.container
+  h1 All Users
+  table
+    col width="50"
+    col width="200"
+    col width="200"
+    col width="200"
+    tr
+      th ID
+      th Name
+      th Email
+      th Action
+    - @users.each do |user|
+      tr
+        td
+          = user.id
+        td
+          = user.name
+        td
+          = user.email
+        td
+          = link_to "Show", user_path(user)
+
+  = link_to "Home Page", root_path

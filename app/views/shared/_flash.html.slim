@@ -1,0 +1,21 @@
+/flash[:success] = green
+/flash[:notice]  = blue
+/flash[:alert]   = yellow
+/flash[:error]   = red
+#flash_messages.container
+  - if flash[:success]
+    .alert.alert-success
+      button.close data-dismiss="alert" type="button"  &times;
+      = flash[:success] 
+  - if flash[:notice]
+    .alert.alert-info
+      button.close data-dismiss="alert" type="button"  &times;
+      = flash[:notice] 
+  - if flash[:alert]
+    .alert.alert-warning
+      button.close data-dismiss="alert" type="button"  &times;
+      = flash[:alert] 
+  - if flash[:error]
+    .alert.alert-danger
+      button.close data-dismiss="alert" type="button"  &times;
+      = flash[:error] 

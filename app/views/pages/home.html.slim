@@ -1,0 +1,31 @@
+.container
+  h1 Vanilla Authentication
+
+  - if current_user
+    .jumbotron
+      h1 Current User Info
+      h2 #{current_user.name}
+      h2 #{current_user.email}
+      = link_to "Log Out", logout_path, method: :post
+
+  - else
+    h1 Log In
+    = form_for :user_sessions, url: login_path, method: :post do |f|
+      table
+        col width="200"
+        tr
+          td
+            = f.label :email
+          td
+            = f.text_field :email
+        tr
+          td
+            = f.label :password
+          td
+            = f.password_field :password
+        tr
+          td colspan="2"
+            = f.submit "Log In"
+
+  p
+    = link_to "Create New User", new_user_path 

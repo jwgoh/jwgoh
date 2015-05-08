@@ -9,10 +9,10 @@ development:
   database: development_database_name
 test:
   <<: *default
-  database: development_database_name
+  database: test_database_name
 
 production:
   <<: *default
-  database: development_database_name
+  database: production_database_name
   username: username
   password: <%= ENV['DATABASE_PASSWORD'] %>

@@ -1,0 +1,18 @@
+.container
+  h1 User Info
+  table
+    col width="100"
+    tr
+      td ID 
+      td = @user.id
+    tr
+      td Name
+      td = @user.name
+    tr
+      td Email
+      td = @user.email
+
+  p
+    = link_to "All Users", users_path
+  p
+    = link_to "Home Page", root_path
