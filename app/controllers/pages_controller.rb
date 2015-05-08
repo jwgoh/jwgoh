@@ -5,4 +5,7 @@ class PagesController < ApplicationController
 
   def grid
   end
+
+  def react
+  end
 end

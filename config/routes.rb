@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Playground
   # ==============================================================================================
   get "am-grid", to: "pages#grid", as: "grid"
+  get '/react', to: 'pages#react', as: 'react'
+
+  resources :users
 
   # ==============================================================================================
   # Users & User Sessions
