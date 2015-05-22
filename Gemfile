@@ -17,6 +17,7 @@ gem 'slim'
 gem 'slim-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders'
+gem 'font-awesome-rails'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
