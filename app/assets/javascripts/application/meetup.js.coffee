@@ -79,7 +79,8 @@ $ ->
           className: "col-lg-2 control-label"
           @props.labelText
         DOM.div
-          className: "col-lg-10"
+          className: React.addons.classSet('col-lg-10': true, 'has-warning': @props.warning)
+          @warning()
           DOM[@props.elementType]
             className: "form-control"
             placeholder: @props.placeholder
@@ -92,6 +93,12 @@ $ ->
         "input": @props.inputType,
         "textarea":  null,
       }[@props.elementType]
+    warning: ->
+      return null unless @props.warning
+      DOM.label
+        className: "control-label"
+        htmlFor: @props.id
+        @props.warning
 
   FormInputWithLabelAndReset = React.createClass
     displayName: "FormInputWithLabelAndReset"
@@ -138,12 +145,26 @@ $ ->
         description: ""
         date: new Date()
         seoText: null
+        warning: {
+          text: null
+        }
       }
 
     fieldChanged: (fieldName, event) ->
       stateUpdate = {}
       stateUpdate[fieldName] = event.target.value
       @setState(stateUpdate)
+      @validateField(fieldName, event.target.value)
+
+    validateField: (fieldName, value) ->
+      validator = {
+        title: (text) ->
+          if /\S/.test(text) then null else "Cannot be blank"
+      }[fieldName]
+      return unless validator
+      warnings = @state.warnings
+      warnings[fieldName] = validator(value)
+      @setState(warnings: warnings)
 
     seoChanged: (seoText) ->
       @setState(seoText: seoText)
@@ -195,6 +216,7 @@ $ ->
             placeholder: "Meetup title"
             labelText: "Title"
             #elementType defaults to text
+            warning: @state.warnings.title
           })
 
           React.createElement(FormInputWithLabel, {
