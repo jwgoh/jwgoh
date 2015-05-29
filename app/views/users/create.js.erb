@@ -1,0 +1,4 @@
+$('#flash_messages').html("<%= escape_javascript(render(partial: '/shared/flash')) %>")
+<% if @user.valid? %>
+  $('#users-list').append("<%= escape_javascript(render(partial: 'user', locals: { user: @user })) %>");
+<% end %>

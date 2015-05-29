@@ -16,6 +16,7 @@ gem 'rspec-rails'
 gem 'slim'
 gem 'slim-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'responders'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

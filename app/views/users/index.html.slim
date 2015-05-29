@@ -1,24 +1,50 @@
 .container
-  h1 All Users
-  table
-    col width="50"
-    col width="200"
-    col width="200"
-    col width="200"
-    tr
-      th ID
-      th Name
-      th Email
-      th Action
-    - @users.each do |user|
-      tr
-        td
-          = user.id
-        td
-          = user.name
-        td
-          = user.email
-        td
-          = link_to "Show", user_path(user)
+  .row
+    = link_to "Home Page", root_path
 
-  = link_to "Home Page", root_path
+  .row
+    h1 All Users
+    table
+      col width="50"
+      col width="200"
+      col width="200"
+      col width="200"
+      thead
+        tr
+          th ID
+          th Name
+          th Email
+          th Action
+      tbody#users-list
+        - @users.each do |user|
+          = render partial: "users/user", locals: { user: user }
+
+  .row
+    h1 Create New User
+
+    = form_for @user, remote: true do |f|
+      table
+        col width="200"
+        tr
+          td
+            = f.label :name
+          td
+            = f.text_field :name
+        tr
+          td
+            = f.label :email
+          td
+            = f.text_field :email
+        tr
+          td
+            = f.label :password
+          td
+            = f.password_field :password
+        tr
+          td
+            = f.label :password_confirmation
+          td
+            = f.password_field :password_confirmation
+        tr
+          td colspan="2"
+            = f.submit
