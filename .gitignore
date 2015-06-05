@@ -18,3 +18,7 @@ config/secrets.yml
 /log/*
 !/log/.keep
 /tmp
+
+#OSX Crap file
+**/.DS_STORE
+.DS_STORE

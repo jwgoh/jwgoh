@@ -2,4 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "scss/main"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Boilerplate Stuff
+@import "base/normalize";
+@import "base/typography";
+
+// Utilty stuffs-Mixins, functions etc.
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "helpers/variables";
+
+// Partials (macro)
+@import "layouts/flash";
+@import "layouts/footer";
+@import "layouts/forms";
+@import "layouts/grid";
+@import "layouts/header";
+@import "layouts/sidebar";
+
+// Modules (micro)
+@import "components/buttons";
+@import "components/thumbnails";
+
+// Page-specific styles
+@import "pages/*";
+
+// Large-sites with multiple themes
+@import "themes/*";
+
+// External libraries and frameworks
+@import "vendors/*";
+
+// Overwrite stuff from vendors
+@import "vendors-extensions/*";
