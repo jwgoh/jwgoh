@@ -3,25 +3,28 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(params.fetch(:user_sessions)[:email])
-    if @user && @user.authentication(params.fetch(:user_sessions)[:password])
+    @user = User.find_by_email(user_sessions_params[:email])
+    if @user && @user.authenticate(user_sessions_params[:password])
       log_in(@user)
+      user_sessions_params[:remember_me] == "1" ? remember(@user) : forget(@user)
       flash[:success] = "You have successfully logged in!"
     else
       flash[:error] = "Invalid email or password"
     end
-    redirect_to root_path
+    redirect_to request.referrer || root_path
   end
 
   def destroy
-    session[:user_id] = nil
-    @current_user = nil
-    redirect_to root_path, success: "Logged Out"
+    if logged_in?
+      log_out
+      flash[:success] = "You have successfully logged out!"
+    end
+    redirect_to root_path
   end
 
   private
 
-  def user_session_params
-    params.require(:user_session).permit(:email, :password)
+  def user_sessions_params
+    params.require(:user_sessions).permit(:email, :password, :remember_me)
   end
 end

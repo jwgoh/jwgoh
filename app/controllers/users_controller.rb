@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   respond_to :html, :js
 
   def index
-    @user = User.new # for creating new user
     @users = User.all
   end
   
@@ -18,9 +17,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.clear
-      flash.now[:notice] = "User created"
+      flash.now[:success] = "#{@user.email} has been successfully created"
     else
-      flash.now[:notice] = "#{@user.errors.full_messages}"
+      flash.now[:error] = "#{@user.errors.full_messages}"
     end
     respond_with(@user) { |f| f.html { redirect_to users_path } }
   end

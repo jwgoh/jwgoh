@@ -9,5 +9,7 @@ html
   meta content="width=device-width, initial-scale=1.0" name="viewport"
 
   body class="#{controller_name}-#{action_name}"
+    = render 'shared/header'
     = render 'shared/flash'
     = yield
+    = render 'shared/footer'

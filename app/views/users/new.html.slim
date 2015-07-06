@@ -1,29 +1,54 @@
-/.container
-  /h1 Create New User
+.container
+  .row
+    .col-xs-6
+      h1 Log In
+      = form_for :user_sessions, url: login_path, method: :post do |f|
+        table
+          col width="200"
+          tr
+            td
+              = f.label :email
+            td
+              = f.text_field :email
+          tr
+            td
+              = f.label :password
+            td
+              = f.password_field :password
+          tr
+            td colspan="2"
+              = f.label :remember_me, class: "checkbox inline" do
+                = f.check_box :remember_me
+                span Remember me on this computer
+          tr
+            td colspan="2"
+              = f.submit "Log In"
+    .col-xs-6
+      h1 Create New User
 
-  /= form_for @user do |f|
-    /table
-      /col width="200"
-      /tr
-        /td
-          /= f.label :name
-        /td
-          /= f.text_field :name
-      /tr
-        /td
-          /= f.label :email
-        /td
-          /= f.text_field :email
-      /tr
-        /td
-          /= f.label :password
-        /td
-          /= f.password_field :password
-      /tr
-        /td
-          /= f.label :password_confirmation
-        /td
-          /= f.password_field :password_confirmation
-      /tr
-        /td colspan="2"
-          /= f.submit
+      = form_for @user, remote: true do |f|
+        table
+          col width="200"
+          tr
+            td
+              = f.label :name
+            td
+              = f.text_field :name
+          tr
+            td
+              = f.label :email
+            td
+              = f.text_field :email
+          tr
+            td
+              = f.label :password
+            td
+              = f.password_field :password
+          tr
+            td
+              = f.label :password_confirmation
+            td
+              = f.password_field :password_confirmation
+          tr
+            td colspan="2"
+              = f.submit

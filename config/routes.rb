@@ -5,18 +5,19 @@ Rails.application.routes.draw do
   # Playground
   # ==============================================================================================
   get "am-grid", to: "pages#grid", as: "grid"
-  get '/react', to: 'pages#react', as: 'react'
+  get "/react", to: "pages#react", as: "react"
 
   resources :users
 
   # ==============================================================================================
   # Users & User Sessions
   # ==============================================================================================
-  resources :user_sessions, only: [:new]
-  post 'login', to: 'user_sessions#create', as: 'login'
-  post 'logout', to: 'user_sessions#destroy', as: 'logout'
+  get "login", to: "user_sessions#new"
+  post "login", to: "user_sessions#create"
+  delete "logout", to: "user_sessions#destroy"
 
-  resources :users
+  # ==============================================================================================
+  # Resources
+  # ==============================================================================================
   resources :meetups
-
 end
