@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   # Resources
   # ==============================================================================================
   resources :meetups
+  resources :records
 end
