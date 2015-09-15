@@ -1,5 +1,11 @@
-.container style="background-color: #{@color}"
+.container
+  .row.text-center
+    h1 About
   .row
-    = fa_icon "github"
-    = fa_icon "facebook-square"
-    = fa_icon "instagram"
+    .col-xs-4.text-center
+      = image_tag "profile.jpg", id: "profile-image"
+    .col-xs-8
+      p Hello there! My name is Jun Wan and I am a Ruby on Rails developer.
+      p I graduated with a degree in Physics.
+      p I like playing football and I support Arsenal FC.
+  .row

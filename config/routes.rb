@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # Static Pages
   # ==============================================================================================
   get "about", to: "pages#about"
+  get "portfolio", to: "pages#portfolio"
 
   # ==============================================================================================
   # Playground

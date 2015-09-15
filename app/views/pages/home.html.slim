@@ -1,4 +1,13 @@
 .container
-  h1 Welcome to my portfolio webpage
-  h2 Quote of the day
-  p = @qotd
+  .row
+    h1 Welcome to my portfolio webpage
+    .panel.panel-info
+      .panel-heading
+        table style="width: 100%"
+          tr
+            td style="width: 50%"
+              h3.panel-title Quote of the day
+            td style="width: 50%; text-align: right"
+              span courtesy of <a href="http://www.brainyquote.com/quotes_of_the_day.html">Brainy Quote</a>
+      .panel-body
+        = @qotd

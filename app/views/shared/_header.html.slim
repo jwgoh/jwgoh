@@ -13,23 +13,25 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav
         li
           = link_to "About", about_path
-        li.dropdown
-          a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-            | Dropdown
-            span.caret
-          ul.dropdown-menu
-            li
-              a href="#"  Action
-            li
-              a href="#"  Another action
-            li
-              a href="#"  Something else here
-            li.divider role="separator" 
-            li
-              a href="#"  Separated link
-            li.divider role="separator" 
-            li
-              a href="#"  One more separated link
+        li
+          = link_to "Portfolio", portfolio_path
+        /li.dropdown
+          /a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+            /| Dropdown
+            /span.caret
+          /ul.dropdown-menu
+            /li
+              /a href="#"  Action
+            /li
+              /a href="#"  Another action
+            /li
+              /a href="#"  Something else here
+            /li.divider role="separator" 
+            /li
+              /a href="#"  Separated link
+            /li.divider role="separator" 
+            /li
+              /a href="#"  One more separated link
       ul.nav.navbar-nav.navbar-right
         - if current_user
           li

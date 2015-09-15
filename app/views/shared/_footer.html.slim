@@ -1,8 +1,11 @@
 footer.footer
   .container
-    .row
-      .col-xs-6
-        = fa_icon "github"
-        = fa_icon "facebook-square"
-        = fa_icon "instagram"
-      .col-xs-6
+    .row.text-center
+      p &copy 2015 Jun Wan Goh
+    .row.text-center
+      = link_to "https://github.com/jwgoh/"
+        = fa_icon "github", class: "social-media"
+      = link_to "https://twitter.com/JunWanGoh"
+        = fa_icon "facebook-square", class: "social-media"
+      = link_to "https://uk.linkedin.com/pub/jun-wan-goh/a3/3a1/4a3"
+        = fa_icon "linkedin-square", class: "social-media"

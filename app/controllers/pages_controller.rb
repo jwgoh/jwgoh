@@ -10,7 +10,8 @@ class PagesController < ApplicationController
   end
 
   def about
-    @colors = %w(red blue green)
-    @color = @colors.sample
+  end
+
+  def portfolio
   end
 end
